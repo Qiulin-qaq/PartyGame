@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwc8vujaoun8p"]
+
+[ext_resource type="Texture2D" uid="uid://s0ln61vovd1x" path="res://素材/2dres/fire/fire1.png" id="1_imda6"]
+[ext_resource type="Texture2D" uid="uid://c4l3j1hyqkhel" path="res://素材/2dres/fire/fire2.png" id="2_t3jlu"]
+[ext_resource type="Texture2D" uid="uid://c3rxre2tfjeme" path="res://素材/2dres/fire/fire3.png" id="3_7n63m"]
+
+[sub_resource type="Animation" id="Animation_43sq3"]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_imda6")]
+}
+
+[sub_resource type="Animation" id="Animation_xnd43"]
+resource_name = "2"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_imda6"), ExtResource("2_t3jlu"), ExtResource("3_7n63m")]
+}
+
+[sub_resource type="Animation" id="Animation_b4x5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_imda6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ry53p"]
+_data = {
+"1": SubResource("Animation_43sq3"),
+"2": SubResource("Animation_xnd43"),
+"RESET": SubResource("Animation_b4x5o")
+}
+
+[node name="Fire" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ry53p")
+}
+autoplay = "2"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
+texture_filter = 1
+position = Vector2(121, 622)
+scale = Vector2(1.875, 1.8125)
+texture = ExtResource("1_imda6")
