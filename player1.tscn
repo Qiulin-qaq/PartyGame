@@ -1,0 +1,164 @@
+[gd_scene load_steps=13 format=3 uid="uid://dunrsgk0o5efw"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_ie605"]
+[ext_resource type="Texture2D" uid="uid://c1qym808peo2v" path="res://素材/2dres/char/1blue.png" id="2_jqycn"]
+[ext_resource type="Texture2D" uid="uid://b80mu6sib80k6" path="res://素材/2dres/char/1green.png" id="3_0ba6i"]
+[ext_resource type="Texture2D" uid="uid://c7adldmu4yo4c" path="res://素材/2dres/char/1.png" id="4_v5u6n"]
+[ext_resource type="Texture2D" uid="uid://b5lv1ffcioxfj" path="res://素材/2dres/char/1yellow.png" id="5_1v1jp"]
+[ext_resource type="Texture2D" uid="uid://cjxotg7hkpjd3" path="res://素材/2dres/char/2blue.png" id="6_ulmct"]
+[ext_resource type="Texture2D" uid="uid://cbeya6ijnw0ft" path="res://素材/2dres/char/2green.png" id="7_n5oki"]
+[ext_resource type="Texture2D" uid="uid://ditns885ewcx2" path="res://素材/2dres/char/2.png" id="8_3rrv0"]
+[ext_resource type="Texture2D" uid="uid://bssev6vanrlxo" path="res://素材/2dres/char/2yellow.png" id="9_tts1b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfd2x"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jqycn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jqycn")
+}],
+"loop": true,
+"name": &"idle_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0ba6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ba6i")
+}],
+"loop": true,
+"name": &"idle_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v5u6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v5u6n")
+}],
+"loop": false,
+"name": &"idle_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1v1jp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1v1jp")
+}],
+"loop": true,
+"name": &"idle_yellow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jqycn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ulmct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jqycn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ulmct")
+}],
+"loop": true,
+"name": &"walk_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0ba6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n5oki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ba6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n5oki")
+}],
+"loop": true,
+"name": &"walk_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v5u6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3rrv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v5u6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3rrv0")
+}],
+"loop": false,
+"name": &"walk_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1v1jp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tts1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1v1jp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tts1b")
+}],
+"loop": true,
+"name": &"walk_yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y6euh"]
+radius = 13.0
+height = 26.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0lab5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Label:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Player1" type="CharacterBody2D"]
+position = Vector2(-207, -106)
+scale = Vector2(0.997394, 0.977639)
+script = ExtResource("1_ie605")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(95, 252)
+scale = Vector2(2.0625, 2.53125)
+sprite_frames = SubResource("SpriteFrames_vfd2x")
+animation = &"walk_red"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(95, 258)
+shape = SubResource("CapsuleShape2D_y6euh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 67.0
+offset_top = 212.0
+offset_right = 126.0
+offset_bottom = 235.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_0lab5")

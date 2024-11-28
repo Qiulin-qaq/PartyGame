@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://hts2hlfank08"]
+
+[ext_resource type="Script" path="res://game_selection_scene.gd" id="1_dbawh"]
+[ext_resource type="Texture2D" uid="uid://bqm3mi01m3ykd" path="res://static/Grabland.png" id="1_kgnsx"]
+[ext_resource type="Texture2D" uid="uid://boamaliwsksm0" path="res://static/game2.png" id="2_eavfe"]
+
+[node name="GameSelection_scene" type="Node2D"]
+script = ExtResource("1_dbawh")
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="game1" type="HBoxContainer" parent="Main"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 448.0
+
+[node name="image" type="TextureRect" parent="Main/game1"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("1_kgnsx")
+expand_mode = 1
+
+[node name="game2" type="HBoxContainer" parent="Main"]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 64.0
+offset_right = 1016.0
+offset_bottom = 448.0
+
+[node name="image2" type="TextureRect" parent="Main/game2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("2_eavfe")
+expand_mode = 1
+
+[node name="goto_game1" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 512.0
+offset_right = 404.0
+offset_bottom = 576.0
+text = "地盘保卫站"
+
+[node name="goto_game2" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 512.0
+offset_right = 828.0
+offset_bottom = 576.0
+text = "炸弹传递战"
+
+[node name="back_to_menu" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 104.0
+offset_bottom = 47.0
+text = "返回"
+
+[connection signal="button_down" from="Main/goto_game1" to="." method="_on_goto_game_1_button_down"]
+[connection signal="button_down" from="Main/goto_game2" to="." method="_on_goto_game_2_button_down"]
+[connection signal="button_down" from="Main/back_to_menu" to="." method="_on_back_to_menu_button_down"]

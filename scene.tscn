@@ -1,15 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3rjho5u7w1u0"]
+[gd_scene load_steps=13 format=3 uid="uid://c3rjho5u7w1u0"]
 
 [ext_resource type="Texture2D" uid="uid://u22mk32lr4k3" path="res://素材/2dres/tile/dungeon-tileset.png" id="1_28ly6"]
-[ext_resource type="Script" path="res://code(scene1)/CharacterBody2dA.cs" id="2_ku4gw"]
-[ext_resource type="Texture2D" uid="uid://c7adldmu4yo4c" path="res://素材/2dres/char/1.png" id="2_ymsi4"]
-[ext_resource type="Texture2D" uid="uid://c1qym808peo2v" path="res://素材/2dres/char/1blue.png" id="3_bvuav"]
-[ext_resource type="Texture2D" uid="uid://b80mu6sib80k6" path="res://素材/2dres/char/1green.png" id="4_q6qff"]
-[ext_resource type="Texture2D" uid="uid://ditns885ewcx2" path="res://素材/2dres/char/2.png" id="4_xnvko"]
-[ext_resource type="Texture2D" uid="uid://b5lv1ffcioxfj" path="res://素材/2dres/char/1yellow.png" id="6_ei5je"]
-[ext_resource type="Texture2D" uid="uid://cjxotg7hkpjd3" path="res://素材/2dres/char/2blue.png" id="7_b0ori"]
-[ext_resource type="Texture2D" uid="uid://cbeya6ijnw0ft" path="res://素材/2dres/char/2green.png" id="8_hrcyv"]
-[ext_resource type="Texture2D" uid="uid://bssev6vanrlxo" path="res://素材/2dres/char/2yellow.png" id="10_j5po6"]
+[ext_resource type="Script" path="res://scene.gd" id="1_v55r3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnu0t"]
 texture = ExtResource("1_28ly6")
@@ -63,127 +55,8 @@ size = Vector2(48.5, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05j86"]
 size = Vector2(47, 47)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0x8ig"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_bvuav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_bvuav")
-}],
-"loop": true,
-"name": &"idle_blue",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_q6qff")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_q6qff")
-}],
-"loop": true,
-"name": &"idle_green",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ymsi4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ymsi4")
-}],
-"loop": false,
-"name": &"idle_red",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_ei5je")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ei5je")
-}],
-"loop": true,
-"name": &"idle_yellow",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_bvuav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_b0ori")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_bvuav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_b0ori")
-}],
-"loop": true,
-"name": &"walk_blue",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_q6qff")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hrcyv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_q6qff")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hrcyv")
-}],
-"loop": true,
-"name": &"walk_green",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ymsi4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_xnvko")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ymsi4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_xnvko")
-}],
-"loop": false,
-"name": &"walk_red",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_ei5je")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_j5po6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ei5je")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_j5po6")
-}],
-"loop": true,
-"name": &"walk_yellow",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hjyy"]
-radius = 13.0
-height = 26.0
-
 [node name="Scene" type="Node2D"]
+script = ExtResource("1_v55r3")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -249,23 +122,25 @@ polygon = PackedVector2Array(-11, -13, -11, 4, 69, 5, 69, -11, 101, -11, 101, 4,
 position = Vector2(987, 572)
 polygon = PackedVector2Array(-11, -13, -11, 71, 151, 72, 155, 72, 154, 35, 101, 36, 101, 20, 37, 19, 37, -13)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-scale = Vector2(0.997394, 0.977639)
-script = ExtResource("2_ku4gw")
+[node name="Player" type="Node" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-texture_filter = 1
-position = Vector2(95, 252)
-scale = Vector2(2.0625, 2.53125)
-sprite_frames = SubResource("SpriteFrames_0x8ig")
-animation = &"walk_blue"
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(95, 258)
-shape = SubResource("CapsuleShape2D_2hjyy")
-
-[node name="Label" type="Label" parent="CharacterBody2D"]
-offset_left = 67.0
-offset_top = 212.0
+[node name="Create" type="Button" parent="UI"]
+offset_left = 40.0
 offset_right = 126.0
-offset_bottom = 235.0
+offset_bottom = 42.0
+text = "开始游戏"
+
+[node name="Join" type="Button" parent="UI"]
+offset_left = 184.0
+offset_right = 270.0
+offset_bottom = 42.0
+text = "加入游戏"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player1.tscn")
+spawn_path = NodePath("../Player")
+
+[connection signal="button_down" from="UI/Create" to="." method="_on_create_button_down"]
+[connection signal="button_down" from="UI/Join" to="." method="_on_join_button_down"]
