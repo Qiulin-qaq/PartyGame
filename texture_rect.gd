@@ -1,7 +1,7 @@
 extends TextureRect
 
 # 旋转晃动幅度（角度），限制在±20度内
-var rotation_amplitude = 0.5
+var rotation_amplitude = 0.3
 # 晃动周期（完成一次旋转晃动的时间，单位：秒）
 var period = 5
 # 时间计数器
@@ -18,5 +18,5 @@ func _process(delta):
 	var rotation_angle = rotation_amplitude * sin(2 * PI * time / period)
 	rotation_angle = clamp(rotation_angle, -rotation_amplitude, rotation_amplitude)
 	
-	# 只更新旋转角度
+	
 	set_rotation(rotation_angle)
