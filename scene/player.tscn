@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckvffx1d3rrpj"]
+
+[ext_resource type="Texture2D" uid="uid://dq3grnaelovlw" path="res://PNG/platformerPack_character (1).png" id="1_c0x5j"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_k2nfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvsq"]
+size = Vector2(51.5, 65.5)
+
+[sub_resource type="Animation" id="Animation_0dnds"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7bx6q"]
+resource_name = "idel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yhlh5"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_1eymi"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5bjyu"]
+_data = {
+"RESET": SubResource("Animation_0dnds"),
+"idel": SubResource("Animation_7bx6q"),
+"jump": SubResource("Animation_yhlh5"),
+"walk": SubResource("Animation_1eymi")
+}
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_k2nfp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(87, -40)
+texture = ExtResource("1_c0x5j")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(88.25, -34.75)
+shape = SubResource("RectangleShape2D_4qvsq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5bjyu")
+}
