@@ -124,7 +124,7 @@ func _on_login_pressed():
 		# 登录成功  
 		print("登录成功，IP：", user_ip if user_ip else "无IP")  
 		# 跳转到主界面  
-		get_tree().change_scene_to_file("E:/Godot_v4.3-stable_mono_win64/program/gui/scene/mainmenu.tscn")  
+		get_tree().change_scene_to_file("res://mainmenu.tscn")  
 	else:  
 		# 登录失败  
 		print("登录失败")  

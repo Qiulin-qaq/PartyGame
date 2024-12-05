@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://b58eu0dqji4w0"]
+
+[ext_resource type="Script" path="res://startmenu.gd" id="1_dobk5"]
+[ext_resource type="Script" path="res://mainmenu.gd" id="2_xr05c"]
+[ext_resource type="Script" path="res://h_box_container.gd" id="3_eb1gi"]
+[ext_resource type="Texture2D" uid="uid://8tbhdqmu65bu" path="res://party.png" id="4_0ab05"]
+[ext_resource type="Script" path="res://texture_rect.gd" id="5_7i8gl"]
+[ext_resource type="Theme" uid="uid://n1xei1wfm6np" path="res://maintheme.tres" id="6_581wq"]
+[ext_resource type="Script" path="res://v_box_container.gd" id="7_4l74l"]
+[ext_resource type="Texture2D" uid="uid://diisn0u0ce74c" path="res://rightphoto (1).png" id="8_vdpoj"]
+
+[node name="StartMenu_scene" type="Node2D"]
+script = ExtResource("1_dobk5")
+
+[node name="StartMenuContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("2_xr05c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_eb1gi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenuContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="StartMenuContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_0ab05")
+stretch_mode = 2
+script = ExtResource("5_7i8gl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenuContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("6_581wq")
+script = ExtResource("7_4l74l")
+
+[node name="StartGame" type="Button" parent="StartMenuContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "开始游戏"
+
+[node name="NewChat" type="Button" parent="StartMenuContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "加入聊天室
+"
+
+[node name="Settings" type="Button" parent="StartMenuContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "设置"
+
+[node name="Version" type="Button" parent="StartMenuContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 10
+text = "版本：1.14514"
+
+[node name="CenterContainer" type="CenterContainer" parent="StartMenuContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="StartMenuContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("8_vdpoj")
+
+[connection signal="button_down" from="StartMenuContainer/HBoxContainer/VBoxContainer/VBoxContainer/StartGame" to="." method="_on_start_game_button_down"]
+[connection signal="button_down" from="StartMenuContainer/HBoxContainer/VBoxContainer/VBoxContainer/NewChat" to="." method="_on_new_chat_button_down"]
+[connection signal="button_down" from="StartMenuContainer/HBoxContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_button_down"]

@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=3 uid="uid://ct68dpuhov2mp"]
+
+[ext_resource type="Script" path="res://code(sence2)/CharacterBody2d.cs" id="1_pw5wn"]
+[ext_resource type="Texture2D" uid="uid://c1qym808peo2v" path="res://素材/2dres/char/1blue.png" id="2_d1k3y"]
+[ext_resource type="Texture2D" uid="uid://b80mu6sib80k6" path="res://素材/2dres/char/1green.png" id="3_xb2e6"]
+[ext_resource type="Texture2D" uid="uid://c7adldmu4yo4c" path="res://素材/2dres/char/1.png" id="4_lc73l"]
+[ext_resource type="Texture2D" uid="uid://b5lv1ffcioxfj" path="res://素材/2dres/char/1yellow.png" id="5_5x1md"]
+[ext_resource type="Texture2D" uid="uid://cjxotg7hkpjd3" path="res://素材/2dres/char/2blue.png" id="6_t3y01"]
+[ext_resource type="Texture2D" uid="uid://cbeya6ijnw0ft" path="res://素材/2dres/char/2green.png" id="7_us6s7"]
+[ext_resource type="Texture2D" uid="uid://ditns885ewcx2" path="res://素材/2dres/char/2.png" id="8_ye2i2"]
+[ext_resource type="Texture2D" uid="uid://bssev6vanrlxo" path="res://素材/2dres/char/2yellow.png" id="9_q07sr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hqxl"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1k3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d1k3y")
+}],
+"loop": true,
+"name": &"idle_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xb2e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xb2e6")
+}],
+"loop": true,
+"name": &"idle_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lc73l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lc73l")
+}],
+"loop": false,
+"name": &"idle_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5x1md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5x1md")
+}],
+"loop": true,
+"name": &"idle_yellow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1k3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t3y01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d1k3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t3y01")
+}],
+"loop": true,
+"name": &"walk_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xb2e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_us6s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xb2e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_us6s7")
+}],
+"loop": true,
+"name": &"walk_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lc73l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ye2i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lc73l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ye2i2")
+}],
+"loop": false,
+"name": &"walk_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5x1md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q07sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5x1md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q07sr")
+}],
+"loop": true,
+"name": &"walk_yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mchdb"]
+radius = 13.0
+height = 26.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8eu5"]
+bg_color = Color(0.635253, 1, 0.483192, 1)
+
+[node name="Player2" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["players"]]
+position = Vector2(64, 7)
+script = ExtResource("1_pw5wn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(95, 252)
+scale = Vector2(2.0625, 2.53125)
+sprite_frames = SubResource("SpriteFrames_0hqxl")
+animation = &"walk_yellow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(95, 257)
+shape = SubResource("CapsuleShape2D_mchdb")
+
+[node name="ProgressBar" type="ProgressBar" parent="CharacterBody2D"]
+offset_left = 63.0
+offset_top = 225.0
+offset_right = 130.0
+offset_bottom = 235.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_g8eu5")
+value = 100.0
+show_percentage = false
