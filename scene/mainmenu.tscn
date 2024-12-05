@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://b58eu0dqji4w0"]
+
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_7m2x3"]
+[ext_resource type="Script" path="res://h_box_container.gd" id="2_7wcsu"]
+[ext_resource type="Texture2D" uid="uid://dqcbuncy3002s" path="res://resource/party.png" id="3_05yjp"]
+[ext_resource type="Theme" uid="uid://n1xei1wfm6np" path="res://maintheme.tres" id="3_bforg"]
+[ext_resource type="Script" path="res://v_box_container.gd" id="4_nkey8"]
+[ext_resource type="Script" path="res://texture_rect.gd" id="4_rcigc"]
+[ext_resource type="AudioStream" uid="uid://fvyapkb5urlv" path="res://resource/voice.mp3" id="7_d38q4"]
+[ext_resource type="PackedScene" uid="uid://c5eafbv7qdh71" path="res://scene/daybackground.tscn" id="8_3iyhi"]
+[ext_resource type="Texture2D" uid="uid://bdkduk5ha4yg2" path="res://resource/rightphoto (1).png" id="8_nte2h"]
+[ext_resource type="Script" path="res://kidding.gd" id="8_qor7a"]
+[ext_resource type="AudioStream" uid="uid://hs56q3skc4tj" path="res://resource/BGM.mp3" id="11_ijcd6"]
+[ext_resource type="AudioStream" uid="uid://bwhw074cfw0cl" path="res://resource/clicksound.mp3" id="12_4hcgc"]
+[ext_resource type="Texture2D" uid="uid://ciarrch0h70lk" path="res://resource/mouse (1).png" id="13_dsv2u"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7m2x3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("2_7wcsu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_05yjp")
+script = ExtResource("4_rcigc")
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="game" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.5
+offset_right = 70.5
+offset_bottom = 246.0
+grow_horizontal = 2
+size_flags_vertical = 6
+theme = ExtResource("3_bforg")
+script = ExtResource("4_nkey8")
+
+[node name="start" type="Button" parent="HBoxContainer/VBoxContainer/Control/game"]
+layout_mode = 2
+text = "开始游戏 "
+
+[node name="chat" type="Button" parent="HBoxContainer/VBoxContainer/Control/game"]
+layout_mode = 2
+text = "新建聊天 "
+
+[node name="set" type="Button" parent="HBoxContainer/VBoxContainer/Control/game"]
+layout_mode = 2
+text = "设置 "
+
+[node name="exit" type="Button" parent="HBoxContainer/VBoxContainer/Control/game"]
+layout_mode = 2
+text = "退出 "
+
+[node name="for_position" type="Control" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="settingmenu" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/for_position"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_right = 151.5
+offset_bottom = 187.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_bforg")
+script = ExtResource("4_nkey8")
+
+[node name="BGMoption" type="Button" parent="HBoxContainer/VBoxContainer/for_position/settingmenu"]
+layout_mode = 2
+text = "音乐：开 "
+
+[node name="dontclick" type="Button" parent="HBoxContainer/VBoxContainer/for_position/settingmenu"]
+layout_mode = 2
+text = "不要点击(˘•ω•˘)◞⁽˙³˙⁾ "
+
+[node name="back" type="Button" parent="HBoxContainer/VBoxContainer/for_position/settingmenu"]
+layout_mode = 2
+text = "返回 "
+
+[node name="Voice" type="AudioStreamPlayer" parent="HBoxContainer/VBoxContainer/for_position/settingmenu"]
+stream = ExtResource("7_d38q4")
+
+[node name="kidding" type="Control" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_qor7a")
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/kidding"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme = ExtResource("3_bforg")
+text = "被掘力 (*´∀ ˋ*)  "
+
+[node name="version" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 10
+text = "版本：1.14514"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("8_nte2h")
+
+[node name="Background" parent="." instance=ExtResource("8_3iyhi")]
+
+[node name="ParallaxLayer" parent="Background" index="0"]
+motion_scale = Vector2(0.2, 1)
+
+[node name="CloudLayer2" parent="Background/ParallaxLayer" index="0"]
+position = Vector2(511, 269)
+
+[node name="ParallaxLayer2" parent="Background" index="1"]
+motion_scale = Vector2(0.5, 1)
+
+[node name="ParallaxLayer3" parent="Background" index="2"]
+motion_scale = Vector2(0.7, 1)
+
+[node name="Mountains" parent="Background/ParallaxLayer3" index="0"]
+position = Vector2(509, 477)
+
+[node name="BGm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ijcd6")
+autoplay = true
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_4hcgc")
+bus = &"SFX"
+
+[node name="mouse" type="Sprite2D" parent="."]
+texture = ExtResource("13_dsv2u")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Control/game/set" to="HBoxContainer/VBoxContainer/Control/game" method="_on_set_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Control/game/exit" to="HBoxContainer/VBoxContainer/Control/game" method="_on_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/for_position/settingmenu/BGMoption" to="." method="_on_bgm_option_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/for_position/settingmenu/dontclick" to="HBoxContainer/VBoxContainer/Control/game" method="_on_dontclick_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/for_position/settingmenu/back" to="HBoxContainer/VBoxContainer/for_position/settingmenu" method="_on_back_pressed"]
+
+[editable path="Background"]
