@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b58eu0dqji4w0"]
+[gd_scene load_steps=14 format=3 uid="uid://nv7xxic6kwg3"]
 
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_7m2x3"]
 [ext_resource type="Script" path="res://h_box_container.gd" id="2_7wcsu"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://v_box_container.gd" id="4_nkey8"]
 [ext_resource type="Script" path="res://texture_rect.gd" id="4_rcigc"]
 [ext_resource type="AudioStream" uid="uid://fvyapkb5urlv" path="res://resource/voice.mp3" id="7_d38q4"]
-[ext_resource type="PackedScene" uid="uid://c5eafbv7qdh71" path="res://scene/daybackground.tscn" id="8_3iyhi"]
+[ext_resource type="PackedScene" uid="uid://c5eafbv7qdh71" path="res://daybackground.tscn" id="8_3iyhi"]
 [ext_resource type="Texture2D" uid="uid://bdkduk5ha4yg2" path="res://resource/rightphoto (1).png" id="8_nte2h"]
 [ext_resource type="Script" path="res://kidding.gd" id="8_qor7a"]
 [ext_resource type="AudioStream" uid="uid://hs56q3skc4tj" path="res://resource/BGM.mp3" id="11_ijcd6"]

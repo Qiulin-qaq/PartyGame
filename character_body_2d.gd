@@ -126,13 +126,13 @@ func game_end():
 func end_game():
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 0.0
+	timer.wait_time = 0.1
 	timer.one_shot = true
 	timer.start()
 	
 	await timer.timeout
 	timer.queue_free()
-	get_tree().change_scene_to_file("res://startmenu.tscn")
+	get_tree().change_scene_to_file("res://mainmenu.tscn")
 	
 	
 @rpc("authority", "call_local")
