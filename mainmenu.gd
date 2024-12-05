@@ -88,3 +88,11 @@ func _on_bgm_option_pressed() -> void:
 			bgm_node.play()
 			bgm_node.seek(last_play_time)  # 从保存的时间继续播放
 			bgm_option_button.text = "音乐：开 "
+
+
+func _on_start_button_down() -> void:
+	get_tree().change_scene_to_file("res://game_selection_scene.tscn")
+
+
+func _on_chat_button_down() -> void:
+	get_tree().change_scene_to_file("res://chat.tscn")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_selection_scene.gd" id="1_dbawh"]
 [ext_resource type="Texture2D" uid="uid://bqm3mi01m3ykd" path="res://static/Grabland.png" id="1_kgnsx"]
-[ext_resource type="Texture2D" uid="uid://boamaliwsksm0" path="res://static/game2.png" id="2_eavfe"]
+[ext_resource type="Texture2D" uid="uid://b6p84i8i3kp0p" path="res://static/knight.png" id="3_k3w7t"]
 
 [node name="GameSelection_scene" type="Node2D"]
 script = ExtResource("1_dbawh")
@@ -36,7 +36,7 @@ offset_bottom = 448.0
 [node name="image2" type="TextureRect" parent="Main/game2"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-texture = ExtResource("2_eavfe")
+texture = ExtResource("3_k3w7t")
 expand_mode = 1
 
 [node name="goto_game1" type="Button" parent="Main"]

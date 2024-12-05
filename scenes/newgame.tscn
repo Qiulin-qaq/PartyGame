@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bg3bfjjmyv64c"]
+[gd_scene load_steps=19 format=3 uid="uid://bg3bfjjmyv64c"]
 
 [ext_resource type="PackedScene" uid="uid://4xsc48wk6bej" path="res://scenes/player.tscn" id="1_3x574"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_oiu4g"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caq5ty3vv1tu5" path="res://scenes/diezone.tscn" id="5_n857f"]
 [ext_resource type="PackedScene" uid="uid://bv866la3vv00y" path="res://scenes/enemy.tscn" id="6_wa03d"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_67g8w"]
+[ext_resource type="PackedScene" uid="uid://ds6qmi3y33syf" path="res://scenes/music.tscn" id="9_x870t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7jo2"]
 texture = ExtResource("2_gku7o")
@@ -314,6 +315,9 @@ position = Vector2(459, -127)
 [node name="Coin7" parent="Coins" instance=ExtResource("4_mulfa")]
 position = Vector2(592, 111)
 
+[node name="Coin8" parent="Coins" instance=ExtResource("4_mulfa")]
+position = Vector2(657, -100)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("3_ipcqt")]
@@ -359,5 +363,4 @@ position = Vector2(185, 74)
 [node name="Enemy2" parent="Enemy" instance=ExtResource("6_wa03d")]
 position = Vector2(652, 106)
 
-[node name="Coin" parent="." instance=ExtResource("4_mulfa")]
-position = Vector2(649, -116)
+[node name="Music" parent="." instance=ExtResource("9_x870t")]

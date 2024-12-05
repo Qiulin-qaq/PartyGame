@@ -6,12 +6,12 @@
 [ext_resource type="Theme" uid="uid://n1xei1wfm6np" path="res://maintheme.tres" id="3_bforg"]
 [ext_resource type="Script" path="res://v_box_container.gd" id="4_nkey8"]
 [ext_resource type="Script" path="res://texture_rect.gd" id="4_rcigc"]
-[ext_resource type="AudioStream" uid="uid://fvyapkb5urlv" path="res://resource/voice.mp3" id="7_d38q4"]
+[ext_resource type="AudioStream" uid="uid://fvyapkb5urlv" path="res://kenney_background-elements-redux/resource/voice.mp3" id="7_d38q4"]
 [ext_resource type="PackedScene" uid="uid://c5eafbv7qdh71" path="res://daybackground.tscn" id="8_3iyhi"]
-[ext_resource type="Texture2D" uid="uid://bdkduk5ha4yg2" path="res://resource/rightphoto (1).png" id="8_nte2h"]
+[ext_resource type="Texture2D" uid="uid://bdkduk5ha4yg2" path="res://kenney_background-elements-redux/resource/rightphoto (1).png" id="8_nte2h"]
 [ext_resource type="Script" path="res://kidding.gd" id="8_qor7a"]
 [ext_resource type="AudioStream" uid="uid://hs56q3skc4tj" path="res://resource/BGM.mp3" id="11_ijcd6"]
-[ext_resource type="AudioStream" uid="uid://bwhw074cfw0cl" path="res://resource/clicksound.mp3" id="12_4hcgc"]
+[ext_resource type="AudioStream" uid="uid://bwhw074cfw0cl" path="res://kenney_background-elements-redux/resource/clicksound.mp3" id="12_4hcgc"]
 [ext_resource type="Texture2D" uid="uid://ciarrch0h70lk" path="res://resource/mouse (1).png" id="13_dsv2u"]
 
 [node name="MarginContainer" type="MarginContainer"]
@@ -166,6 +166,8 @@ bus = &"SFX"
 [node name="mouse" type="Sprite2D" parent="."]
 texture = ExtResource("13_dsv2u")
 
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/Control/game/start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/Control/game/chat" to="." method="_on_chat_button_down"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Control/game/set" to="HBoxContainer/VBoxContainer/Control/game" method="_on_set_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Control/game/exit" to="HBoxContainer/VBoxContainer/Control/game" method="_on_exit_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/for_position/settingmenu/BGMoption" to="." method="_on_bgm_option_pressed"]
