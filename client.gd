@@ -51,13 +51,15 @@ func update_chat_window(message, is_self_message = false):
 	if is_self_message:
 		chat_window.text += "[right][color=gray]我: " + message + "[/color][/right]\n"
 	else:
-		chat_window.text += "[left][color=gray]" + message + "[/color][/left]\n"
+		var local_port = client.get_connected_port()
+		chat_window.text += "[left][color=gray]" + "用户"+ message + "[/color][/left]\n"
 	chat_window.scroll_to_line(chat_window.get_line_count())
 
 # 处理发送消息的按钮点击事件
 func _on_send_pressed() -> void:
 	var message_text = $"../VBoxContainer/ChatInput/Message".text
 	if message_text!= "":
+		
 		last_sent_message = message_text
 		is_my_message_sent = true
 		client.send_text(message_text)
