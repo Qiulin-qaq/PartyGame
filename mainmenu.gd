@@ -39,9 +39,11 @@ func _ready():
 	if custom_mouse:
 		custom_mouse.position = get_viewport().get_mouse_position()
 
+	setup_background()
+
 func _process(delta):
 	background.scroll_offset.x += scroll_velocity * delta
-
+	get_node("/root/Backgroundstate").scroll_offset_x = background.scroll_offset.x
 	# 检查鼠标是否在场景内，如果不在则隐藏自定义鼠标，因为鼠标移出窗口外会有图片卡在边框，所以回复自定义
 	if custom_mouse:
 		var mouse_pos = get_viewport().get_mouse_position()
@@ -49,9 +51,9 @@ func _process(delta):
 
 		# 判断鼠标是否在视口内
 		if mouse_pos.x < 0 or mouse_pos.x > viewport_size.x or mouse_pos.y < 0 or mouse_pos.y > viewport_size.y:
-			custom_mouse.visible = false 
+			custom_mouse.visible = false
 		else:
-			custom_mouse.visible = true  
+			custom_mouse.visible = true
 			custom_mouse.position = mouse_pos  # 更新自定义鼠标位置
 
 func _input(event):
@@ -96,3 +98,7 @@ func _on_start_button_down() -> void:
 
 func _on_chat_button_down() -> void:
 	get_tree().change_scene_to_file("res://chat.tscn")
+
+func setup_background():
+	var background_state = get_node("/root/Backgroundstate")
+	background.scroll_offset.x = background_state.scroll_offset_x

@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dheklt1b3w8tu"]
+[gd_scene load_steps=10 format=3 uid="uid://dheklt1b3w8tu"]
 
 [ext_resource type="Script" path="res://chat.gd" id="1_gx2i1"]
+[ext_resource type="Texture2D" uid="uid://ciarrch0h70lk" path="res://resource/mouse (1).png" id="3_cgapn"]
+[ext_resource type="FontFile" uid="uid://cxxka2d8toeeh" path="res://ziti.ttf" id="3_katvl"]
+[ext_resource type="Script" path="res://send.gd" id="3_x30vl"]
 [ext_resource type="Script" path="res://client.gd" id="4_83ayf"]
+[ext_resource type="Script" path="res://back_to_menu.gd" id="4_b17tn"]
+[ext_resource type="PackedScene" uid="uid://c5eafbv7qdh71" path="res://daybackground.tscn" id="4_v748c"]
+[ext_resource type="AudioStream" uid="uid://ce6qc4l5afs0u" path="res://resource/drops.mp3" id="8_00nw1"]
+[ext_resource type="Script" path="res://chatmusic.gd" id="9_vogyc"]
 
 [node name="Chat" type="Node2D"]
 script = ExtResource("1_gx2i1")
@@ -32,14 +39,41 @@ metadata/_edit_use_anchors_ = true
 [node name="Send" type="Button" parent="VBoxContainer/ChatInput"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
 text = "Send"
+script = ExtResource("3_x30vl")
 
 [node name="back_to_menu" type="Button" parent="."]
 offset_left = 64.0
 offset_top = 96.0
 offset_right = 149.0
 offset_bottom = 127.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_katvl")
+theme_override_font_sizes/font_size = 25
 text = "返回"
+script = ExtResource("4_b17tn")
+
+[node name="mouse" type="Sprite2D" parent="."]
+texture = ExtResource("3_cgapn")
+
+[node name="Background" parent="." instance=ExtResource("4_v748c")]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_00nw1")
+autoplay = true
+
+[node name="chatmusic" type="Button" parent="."]
+offset_left = 984.0
+offset_top = 82.0
+offset_right = 1130.0
+offset_bottom = 135.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "♪～(´ε｀ )  "
+script = ExtResource("9_vogyc")
 
 [connection signal="pressed" from="VBoxContainer/ChatInput/Send" to="WebSocketClient" method="_on_send_pressed"]
 [connection signal="button_down" from="back_to_menu" to="." method="_on_back_to_menu_button_down"]
+[connection signal="pressed" from="chatmusic" to="." method="_on_chatmusic_pressed"]
