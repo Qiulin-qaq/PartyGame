@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5om1t3e5hv2b"]
+[gd_scene load_steps=3 format=3 uid="uid://b5om1t3e5hv2b"]
 
-[ext_resource type="Script" path="res://code(scene1)/Color.cs" id="1_8kawx"]
 [ext_resource type="Texture2D" uid="uid://d0llda73hf5ma" path="res://素材/2dres/tile/redtile.png" id="2_s4dx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3acn"]
-size = Vector2(2, 1)
+size = Vector2(16, 16)
 
 [node name="Color" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(67, 223)
-script = ExtResource("1_8kawx")
+position = Vector2(72, 224)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(28.5, 20.5)
-scale = Vector2(1.1875, 1.1875)
+position = Vector2(-8, 0.204609)
+scale = Vector2(1, 1.10231)
 texture = ExtResource("2_s4dx0")
+centered = false
+offset = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(28, 27)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_f3acn")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered" flags=3]

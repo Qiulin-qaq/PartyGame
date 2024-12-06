@@ -127,8 +127,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y6euh"]
-radius = 13.0
-height = 26.0
+radius = 9.27174
+height = 18.5435
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0lab5"]
 properties/0/path = NodePath(".:position")
@@ -139,26 +139,26 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [node name="Player1" type="CharacterBody2D"]
-position = Vector2(-207, -106)
+position = Vector2(-192, -112)
 scale = Vector2(0.997394, 0.977639)
 script = ExtResource("1_ie605")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(95, 252)
+position = Vector2(72.1881, 245.489)
 scale = Vector2(2.0625, 2.53125)
 sprite_frames = SubResource("SpriteFrames_vfd2x")
 animation = &"walk_red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(95, 258)
+position = Vector2(72.1881, 253.672)
 shape = SubResource("CapsuleShape2D_y6euh")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 67.0
-offset_top = 212.0
-offset_right = 126.0
-offset_bottom = 235.0
+offset_left = 40.1045
+offset_top = 204.574
+offset_right = 99.1045
+offset_bottom = 227.574
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_0lab5")
