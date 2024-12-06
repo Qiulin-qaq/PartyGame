@@ -33,30 +33,4 @@ func _process(delta: float) -> void:
 			custom_mouse.position = mouse_pos
 
 func _on_back_to_menu_button_down() -> void:
-	get_tree().change_scene_to_file("res://mainmenu.tscn")
-
-func setup_background():
-	var background_state = get_node("/root/Backgroundstate")
-	background.scroll_offset.x = background_state.scroll_offset_x
-
-
-func _on_chatmusic_pressed() -> void:
-	if not is_instance_valid(chatmusic_node):
-		print("chatmusic节点未找到！")
-		return
-
-	# 获取chatmusic按钮
-	var chatmusic_button = get_node("chatmusic")
-	if chatmusic_button:
-		var button_text = chatmusic_button.text
-
-		if button_text == "♪～(´ε｀ )  ":
-			# 如果按钮文本是"音乐：开"，则保存当前播放位置并停止音乐
-			last_play_time = chatmusic_node.get_playback_position()
-			chatmusic_node.stop()
-			chatmusic_button.text = "ヽ(´з｀)ﾉ "
-		elif button_text == "ヽ(´з｀)ﾉ ":
-			# 如果按钮文本是"音乐：关"，则恢复音乐并从保存的时间继续播放
-			chatmusic_node.play()
-			chatmusic_node.seek(last_play_time)  # 从保存的时间继续播放
-			chatmusic_button.text = "♪～(´ε｀ )  "
+	get_tree().change_scene_to_file("res://startmenu.tscn")
