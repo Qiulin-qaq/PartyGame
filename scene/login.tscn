@@ -117,7 +117,7 @@ script = ExtResource("7_lmyri")
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 96.0
-offset_bottom = 107.0
+offset_bottom = 111.0
 theme = ExtResource("7_s81o6")
 
 [node name="DialogText" type="Label" parent="ErrorPopupPanel/VBoxContainer"]
